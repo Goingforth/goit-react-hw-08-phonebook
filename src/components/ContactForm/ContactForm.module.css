@@ -1,0 +1,12 @@
+.border {
+  border: 2px solid black;
+}
+.formContact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100px;
+
+  margin: 24px 40px;
+}

@@ -1,20 +1,25 @@
 import { Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-import Home from 'components/pages/Home/Home';
-import Register from 'components/pages/Register/Register';
-import Login from 'components/pages/Login/Login';
-import Contacts from 'components/pages/Contacts/Contacts';
+import { fetchCurrentUser } from 'redux/auth/auth-operations';
+
+import Home from 'pages/Home/Home';
+import Register from 'pages/Register/Register';
+import Login from 'pages/Login/Login';
+import Contacts from 'pages/Contacts/Contacts';
+import Container from 'components/Container/Container';
+import AppBar from 'components/AppBar/AppBar';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
   return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/contacts">Contacts</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Login</Link>
-      </nav>
+    <Container>
+      <AppBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contacts" element={<Contacts />} />
@@ -22,7 +27,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
       {/* <ToastContainer autoClose={3000} theme={'colored'} /> */}
-    </div>
+    </Container>
   );
 };
 export default App;
