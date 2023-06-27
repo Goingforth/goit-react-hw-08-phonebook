@@ -20,8 +20,8 @@ const ContactForm = () => {
     contactsName.includes(name)
       ? // ? toast.error(`${name} is already in contacts`)
         alert(`${name} is already in contacts`)
-       : dispatch(addContact({ name, number }));
-      // console.log({ name, number });
+      : dispatch(addContact({ name, number }));
+
     form.reset();
   };
 
@@ -29,7 +29,6 @@ const ContactForm = () => {
     <>
       <div className={css.border}>
         <form onSubmit={handleSubmit}>
-          {/* <form> */}
           <div className={css.formContact}>
             <div>
               <label>Name</label>

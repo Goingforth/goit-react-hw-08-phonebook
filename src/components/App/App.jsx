@@ -1,33 +1,68 @@
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
+import useAuth from 'hooks/useAuth';
+import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import Layout from 'components/Layout/Layout';
 
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 
-import Home from 'pages/Home/Home';
-import Register from 'pages/Register/Register';
-import Login from 'pages/Login/Login';
-import Contacts from 'pages/Contacts/Contacts';
-import Container from 'components/Container/Container';
-import AppBar from 'components/AppBar/AppBar';
+// import Container from 'components/Container/Container';
+
+const HomePage = lazy(() => import('pages/Home/Home'));
+const RegisterPage = lazy(() => import('pages/Register/Register'));
+const LoginPage = lazy(() => import('pages/Login/Login'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
 
 const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
-  return (
-    <Container>
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      {/* <ToastContainer autoClose={3000} theme={'colored'} /> */}
-    </Container>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    // <Container>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Route>
+    </Routes>
+    // </Container>
+    // <Container>
+    //   <AppBar />
+    //   <Routes>
+    //     <Route path="/" element={<HomePage />} />
+    //     <Route path="/contacts" element={<ContactsPage />} />
+    //     <Route path="/register" element={<RegisterPage />} />
+    //     <Route path="/login" element={<LoginPage />} />
+    //   </Routes>
+    //   {/* <ToastContainer autoClose={3000} theme={'colored'} /> */}
+    // </Container>
   );
 };
 export default App;

@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
-import authSelectors from 'redux/auth/auth-selectors';
+
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
-  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -20,20 +19,16 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
-      {!isLoggedIn && (
-        <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-          <label className={css.label}>
-            Email
-            <input type="email" name="email" />
-          </label>
-          <label className={css.label}>
-            Password
-            <input type="password" name="password" />
-          </label>
-          <button type="submit">Log In</button>
-        </form>
-      )}
-    </div>
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+      <label className={css.label}>
+        Email
+        <input type="email" name="email" />
+      </label>
+      <label className={css.label}>
+        Password
+        <input type="password" name="password" />
+      </label>
+      <button type="submit">Log In</button>
+    </form>
   );
 };
