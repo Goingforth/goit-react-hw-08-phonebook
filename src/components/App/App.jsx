@@ -8,8 +8,6 @@ import Layout from 'components/Layout/Layout';
 
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 
-// import Container from 'components/Container/Container';
-
 const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register/Register'));
 const LoginPage = lazy(() => import('pages/Login/Login'));
@@ -25,7 +23,6 @@ const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    // <Container>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -52,17 +49,6 @@ const App = () => {
         />
       </Route>
     </Routes>
-    // </Container>
-    // <Container>
-    //   <AppBar />
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route path="/contacts" element={<ContactsPage />} />
-    //     <Route path="/register" element={<RegisterPage />} />
-    //     <Route path="/login" element={<LoginPage />} />
-    //   </Routes>
-    //   {/* <ToastContainer autoClose={3000} theme={'colored'} /> */}
-    // </Container>
   );
 };
 export default App;
