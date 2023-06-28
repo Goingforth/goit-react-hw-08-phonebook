@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[752],{8292:function(e,t,a){a.r(t),a.d(t,{default:function(){return s}});var n=a.p+"static/media/telephone.353207ef9af77d808b8d.jpg",r="Home_panel__vKgoR",c="Home_container__w+u63",l=a(3329),s=function(){return(0,l.jsx)(l.Fragment,{children:(0,l.jsx)("div",{className:r,children:(0,l.jsx)("div",{className:c,children:(0,l.jsx)("img",{src:n,alt:" old telephone"})})})})}}}]);
+//# sourceMappingURL=752.bc16da99.chunk.js.map
