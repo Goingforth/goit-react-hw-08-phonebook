@@ -8,5 +8,8 @@
 }
 .item {
   display: flex;
-  gap: 18px;
+  grid: 18px;
+  /* gap: 18px; */
+  align-items: center;
+  justify-content: space-between;
 }

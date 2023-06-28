@@ -1,22 +1,22 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-//import css from './Contactitem.module.css';
 
-import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Typography from '@mui/material/Typography';
+
+import css from './Contactitem.module.css';
 const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   return (
-    // <li className={css.item}>
-    <li>
-      <span>{name}:</span> <span>{number}</span>
-      <IconButton aria-label="delete">
-        <DeleteIcon
-          onClick={() => {
-            dispatch(deleteContact(id));
-          }}
-        />
-      </IconButton>
+    <li className={css.item}>
+      <Typography>{name}:</Typography>
+      <Typography>{number}</Typography>
+
+      <DeleteIcon
+        onClick={() => {
+          dispatch(deleteContact(id));
+        }}
+      />
     </li>
   );
 };

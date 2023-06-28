@@ -11,27 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import Typography from '@mui/material/Typography';
 
-//import Box from '@mui/material/Box';
 
-// const styles = {
-//   header: {
-//     display: 'flex',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-//     borderBottom: '1px solid #2A363B',
-//   },
-// };
-
-// const AppBar = () => {
-//   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
-//   return (
-//     <header style={styles.header}>
-//       <Navigation />
-//       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-//     </header>
-//   );
-// };
-// export default AppBar;
 const Header = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   return (
@@ -45,14 +25,14 @@ const Header = () => {
             variant="h6"
             noWrap
             component="a"
-            // href="/"
+         
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 900,
               letterSpacing: '.3rem',
-              // color: 'inherit',
+            
               color: 'yellow',
               textDecoration: 'none',
               ml: 2,

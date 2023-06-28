@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 const AuthNav = () => {
   return (
-    <Box sx={{ display: { xs: 'flex', ml: 'auto' } }}>
+    <Box sx={{ display: { xs: 'flex', marginLeft: 'auto' } }}>
       <Button sx={{ my: 2, color: 'white', display: 'block' }}>
         <NavLink className={css.link} to="/register">
           Register
@@ -13,7 +13,7 @@ const AuthNav = () => {
       </Button>
       <Button sx={{ my: 2, color: 'white', display: 'block' }}>
         <NavLink className={css.link} to="/login">
-          Log In
+          Login
         </NavLink>
       </Button>
     </Box>

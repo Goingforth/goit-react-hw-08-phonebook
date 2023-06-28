@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-//  import { addContact } from 'redux/operations';
 import { addContact } from 'redux/contacts/operations';
-// import { selectNameContacts } from 'redux/selectors';
+
 import { selectNameContacts } from 'redux/contacts/selectors';
-import css from './ContactForm.module.css';
 
 import TextField from '@mui/material/TextField';
 import { Box } from '@mui/material';
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
+
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
 
 //import { toast } from 'react-toastify';
 
@@ -25,7 +28,14 @@ const ContactForm = () => {
     contactsName.includes(name)
       ? // ? toast.error(`${name} is already in contacts`)
         alert(`${name} is already in contacts`)
-      : dispatch(addContact({ name, number }));
+      : // <Alert onClose={() => {}}>This is a success alert — check it out!</Alert>
+        // <Stack sx={{ width: '100%' }} spacing={2}>
+        //   <Alert severity="warning">
+        //     <AlertTitle>Warning</AlertTitle>
+        //     This is a warning alert — <strong>check it out!</strong>
+        //   </Alert>
+        // </Stack>
+        dispatch(addContact({ name, number }));
 
     form.reset();
   };
@@ -50,9 +60,7 @@ const ContactForm = () => {
       </Typography>
       <form onSubmit={handleSubmit}>
         <Box sx={{ display: { xs: 'flex', alignItems: 'center', gap: 20 } }}>
-          {/* <div className={css.formContact}> */}
           <div>
-            {/* <label>Name</label> */}
             <TextField
               label="Name"
               type="text"
@@ -66,7 +74,6 @@ const ContactForm = () => {
           </div>
 
           <div>
-            {/* <label>Number</label> */}
             <TextField
               label="Number"
               type="tel"
