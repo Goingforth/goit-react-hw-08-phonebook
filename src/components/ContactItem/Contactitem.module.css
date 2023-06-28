@@ -9,8 +9,7 @@
 .item {
   display: flex;
   grid: 18px;
-  flex-basis: max-content;
-  /* gap: 18px; */
   align-items: center;
   justify-content: space-between;
+  list-style-type: circle;
 }
