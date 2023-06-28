@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/contacts/filterSlice';
-import css from './Filter.module.css';
+
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -9,12 +11,28 @@ const Filter = () => {
   };
   return (
     <div>
-      <h4 className={css.titleFind}>Find contacts by name</h4>
-      <input
-        className={css.FieldFind}
+      <Typography
+        variant="h6"
+        noWrap
+        component="a"
+        sx={{
+          display: { xs: 'none', md: 'flex' },
+          mt: 2,
+          mb: 2,
+          fontFamily: 'monospace',
+          fontWeight: 700,
+          letterSpacing: '.2rem',
+          color: 'black',
+          textDecoration: 'none',
+        }}
+      >
+        Find contacts by name
+      </Typography>
+      <TextField
         id="standard-basic"
-        label="Standard"
+        label="Input name of contact"
         variant="standard"
+        size="small"
         onChange={handleChange}
       />
     </div>

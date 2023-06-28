@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
 // import { Toaster } from 'react-hot-toast';
-import AppBar from 'components/AppBar/AppBar';
+import Header from 'components/Header/Header';
 import { Suspense } from 'react';
 
 const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
-      <AppBar />
+    // <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div>
+      <Header />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
