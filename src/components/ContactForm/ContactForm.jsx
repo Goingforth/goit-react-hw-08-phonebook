@@ -9,12 +9,7 @@ import { Box } from '@mui/material';
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
-import AlertTitle from '@mui/material/AlertTitle';
-import Stack from '@mui/material/Stack';
-
-//import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -26,16 +21,8 @@ const ContactForm = () => {
     const number = form.elements.phone.value;
 
     contactsName.includes(name)
-      ? // ? toast.error(`${name} is already in contacts`)
-        alert(`${name} is already in contacts`)
-      : // <Alert onClose={() => {}}>This is a success alert — check it out!</Alert>
-        // <Stack sx={{ width: '100%' }} spacing={2}>
-        //   <Alert severity="warning">
-        //     <AlertTitle>Warning</AlertTitle>
-        //     This is a warning alert — <strong>check it out!</strong>
-        //   </Alert>
-        // </Stack>
-        dispatch(addContact({ name, number }));
+      ? toast.error(`${name} is already in contacts`)
+      : dispatch(addContact({ name, number }));
 
     form.reset();
   };

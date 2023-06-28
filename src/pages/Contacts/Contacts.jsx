@@ -8,10 +8,7 @@ import Filter from 'components/Filter/Filter';
 import ContactList from 'components/ContactList/ContactList';
 import css from './Contacts.module.css';
 
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
-// import { ProgressBar } from 'react-loader-spinner';
+import { ProgressBar } from 'react-loader-spinner';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -29,34 +26,21 @@ const Contacts = () => {
       <Filter />
       {error && <p>{error}</p>}
 
-      {/* {isLoading && !error && <b>Request in progress...</b>} */}
-      {/* {isLoading && !error && ( */}
-      {/* <b>
-        <ProgressBar
-          height="80"
-          width="380"
-          ariaLabel="progress-bar-loading"
-          wrapperStyle={{}}
-          wrapperClass="progress-bar-wrapper"
-          borderColor="black"
-          barColor="grey"
-        />
-      </b>
-      )} */}
+      {isLoading && !error && (
+        <b>
+          <ProgressBar
+            height="80"
+            width="380"
+            ariaLabel="progress-bar-loading"
+            wrapperStyle={{}}
+            wrapperClass="progress-bar-wrapper"
+            borderColor="black"
+            barColor="grey"
+          />
+        </b>
+      )}
 
       <ContactList />
-      {/* <ToastContainer
-        position="top-left"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      /> */}
     </div>
   );
 };
