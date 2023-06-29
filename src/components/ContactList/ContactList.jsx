@@ -16,7 +16,7 @@ const ContactList = () => {
         component="a"
         sx={{
           display: { xs: 'none', md: 'flex' },
-          mt: 2,
+          mt: 4,
           mb: 2,
           fontFamily: 'monospace',
           fontWeight: 700,

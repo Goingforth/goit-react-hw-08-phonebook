@@ -1,15 +1,6 @@
-.buttonDelete {
-  border: 1px solid black;
-  border-radius: 4px;
-  &:hover {
-    background-color: #33ccff;
-    cursor: pointer;
-  }
-}
 .item {
   display: flex;
   grid: 18px;
   align-items: center;
   justify-content: space-between;
-  list-style-type: circle;
 }

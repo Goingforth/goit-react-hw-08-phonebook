@@ -10,7 +10,17 @@ const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   return (
     <li className={css.item}>
-      <Box>
+      <Box
+        sx={{
+          display: {
+            xs: 'flex',
+            alignItems: 'center',
+
+            gap: 20,
+            justifyContent: 'flex-start',
+          },
+        }}
+      >
         <Typography>{name}:</Typography>
       </Box>
       <Box
@@ -34,15 +44,3 @@ const ContactItem = ({ id, name, number }) => {
   );
 };
 export default ContactItem;
-{
-  /* <li className={css.item}>
-  <Typography>{name}:</Typography>
-  <Typography>{number}</Typography>
-
-  <DeleteIcon
-    onClick={() => {
-      dispatch(deleteContact(id));
-    }}
-  />
-</li>; */
-}
